@@ -13,41 +13,35 @@ body,html{
   height: 100%;
 }
 .app{
-  width: 110px;
-  height: 130px;
-  margin: 2px auto;
-  border: 0.2px solid #ccc
+  width: 900px;
+  height: 600px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  position: relative;
 }
-.item{
+.pagination{
+  position: absolute;
+  bottom: 10px;
+  left: 27%;
+}
+.pagecontext{
   width: 100%;
-  height: 12px;
-  border-bottom: 0.1px solid #eee;
-  font-size: 4px;
+  height: 90%;
+  border: 1px solid #ccc
+}
+.pagecontext p{
+  width: 100%;
+  height: 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  border-bottom: 1px solid #eee;
 }
-.item p b{
-  margin-left: 2px;
-  padding: 0.5px 2px;
-  background: #f00;
-  border-radius: 1px
-}
-.item p span{
-  color:blue;
-  margin-left: 1.5px;
-}
-.item>span{
-  margin-right: 3px;
+.pagecontext p b{
+  margin: 0 20px;
   font-weight: bold;
-  color:#666;
+  font-size: 20px;
+  width: 30px;
 }
-.app>h5{
-  font-size: 4px;
-  margin: 2px 0;
-  position: relative;
-  left: 92px;
-  top: 0;
-  color:blue;
-  cursor: pointer;
+.pagecontext p span{
+  color: rgb(80, 18, 223)
 }
