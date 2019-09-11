@@ -1,27 +1,21 @@
 import React, { Component } from 'react'
-import "./App.css"
-import { Pagination } from 'antd';
-import PageContext from "./component/PageContext"
-
+import './App.css';
+import Item from './component/Item'
+import axios from "axios"
+import "./mock/index"
 export default class App extends Component {
-  state={current:5,pagesize:10,total:200}
-  onShowSizeChange(current, size){
-    console.log(current, size)
-  }
-  onChange=current=>{
-    console.log(current)
-    this.setState({current})
+  state={list:[]}
+  componentDidMount(){
+    axios.get("/list").then(({data})=>{
+      this.setState({list:data.list})
+    })
   }
   render() {
-    let {current,pagesize,total}=this.state
+    let {list}=this.state
     return (
       <div className="app">
-          <div className="pagecontext">
-              <PageContext current={current} pagesize={pagesize} total={total}></PageContext>
-          </div>
-          <div className="pagination">
-              <Pagination current={current} pageSize={pagesize} onChange={this.onChange} total={total}/>
-          </div>
+        <h5 onClick={()=>{this.componentDidMount()}}>换一换</h5>
+        {list.length&&list.map((item,index)=><Item key={index} item={item} index={index}/>)} 
       </div>
     )
   }
